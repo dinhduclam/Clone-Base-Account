@@ -1,0 +1,18 @@
+In "C:\xampp\apache\conf\extra\httpd-vhosts.conf"
+
+<VirtualHost *:80>
+  DocumentRoot C:/xampp/htdocs/
+  ServerName localhost
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName clone.account.com
+    DocumentRoot C:/php_workspace/base_account_clone
+    <Directory "C:/php_workspace/base_account_clone">
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride all
+        Order Deny,Allow
+        Allow from all
+        Require all granted
+    </Directory>
+</VirtualHost>
