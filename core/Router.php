@@ -27,12 +27,12 @@ class Router
 		$func = $this->routes[$method][$path] ?? false;
 
 		if ($func === false){
-			http_response_code(404);
+			Application::$app->response->statusCode(404);
 			return 'Not Found';
 		}
 
 		if (is_string($func))
-			return Application::$view->renderView($func);
+			return Application ::$view->renderView($func);
 
 		if (is_array($func)){
 			Application::$app->controller = new $func[0];

@@ -67,7 +67,7 @@
 	text-align:center;
 	padding-bottom:20px;
 	border-bottom:2px solid #eee;
-} 
+}
 #auth .box{
 }
 #auth .box .form{
@@ -302,4 +302,68 @@
 	font-weight:bold;
 	font-size:15px;
  color:#111;
+}
+
+#apdialogs{
+	position:fixed;
+	top:0px;
+	left:0px;
+	display:none;
+	width:100%;
+	height:100%;
+	z-index:9999;
+}
+#apdialogs .__dialog_ontop{
+	z-index:99999;
+}
+.__apalert .__apdialog .icon .ficon-minus-sign{
+	color:#c65144;
+}
+.__dialog > .__closable{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+}
+#alert .structed-error{
+	color:#c34343;
+}
+#alert .structed-error-extra{
+}
+#alert .structed-error-extra .structed-error-li{
+	padding-top:10px;
+	position:relative;
+}
+#alert .structed-error-extra .structed-error-li .-k{
+	font-size:13px;
+ color:#888;
+}
+#alert .structed-error-extra .structed-error-li .-v{
+	position:absolute;
+	left:50%;
+	top:10px;
+}
+#ap-invs{
+	position:absolute;
+	top:-2000px;
+	left:-2000px;
+	visibility:hidden;
+	display:block;
+	z-index:9999;
+}
+#ap-invs> div{
+	background-color: #fff;
+}
+#ap-invs> pre{
+	background-color: #fff;
+	white-space:pre-wrap;
+	word-wrap:break-word;
+	padding:0;
+	margin:0;
+	position:relative;
+}
+#ap-invs> pre > span{
+	display:inline-block;
+	vertical-align:top;
 }

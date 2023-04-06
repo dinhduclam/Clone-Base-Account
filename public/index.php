@@ -15,7 +15,9 @@ $app->router->post('/login', [AuthController::class, 'handleLogin']);
 $app->router->get('/register', [AuthController::class, 'register']);
 $app->router->post('/register', [AuthController::class, 'handleRegister']);
 
-$app->router->get('/account', []);
+$app->router->get('/account', function() {
+	return "hello ".Application::$app->session->get('username');
+});
 $app->run();
 
 ?>

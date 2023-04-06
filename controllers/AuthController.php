@@ -1,53 +1,69 @@
 <?php
 
-require_once("../models/Credentials.php");
+require_once("../models/LoginModel.php");
+require_once("../models/RegisterModel.php");
 require_once("BaseController.php");
 
 class AuthController extends BaseController
 {
-    private $credentialsModel;
-
-	public function __construct() {
-		// $this->credentialsModel = new ModelCredentials();
+	public function __construct()
+	{
 	}
 
 	// GET: /login
-	public function login(){
+	public function login()
+	{
 		$this->layout = 'auth';
 		return $this->render('login');
 	}
 
 	// POST: /login
-	public function handleLogin(){
+	public function handleLogin()
+	{
 		$data = Application::$app->request->getBody();
-		var_dump($data);
-		echo "handle login";
-		// if (isset($_POST['login'])) {
-		// 	$email = $_POST['email'];
-		// 	$password = $_POST['password'];
-		// 	$user = $this->credentialsModel->getUserByEmail($email);
 
-		// 	if ($user && password_verify($password, $user['password'])) {
-		//  		session_start();
-		// 		$_SESSION['user'] = $user;
-		// 		echo "Success";
-		// 	} else {
-		// 		echo "Invalid email or password";
-		// 	}
-		// }
+		$loginModel = new LoginModel($data);
+
+		$res = $loginModel->validate();
+
+		if ($res){
+			Application::$app->session->set('username', $res);
+			Application::$app->response->redirect("/account");
+		}
+		else {
+			$this->layout = 'auth';
+			return
+				$this->render('login', [
+					'model' => $loginModel
+				]);
+		}
 	}
 
 	// GET: /register
-	public function register(){
+	public function register()
+	{
 		$this->layout = 'auth';
-		echo 'register';
+		echo $this->render('register');
 	}
 
 	// POST: /register
-	public function handleRegister(){
+	public function handleRegister()
+	{
 		$data = Application::$app->request->getBody();
-		var_dump($data);
-		echo "handle register";
+
+		$registerModel = new RegisterModel($data);
+
+		if ($registerModel->validate() && $registerModel->save()){
+			//session
+			Application::$app->response->redirect("/login");
+		}
+		else {
+			$this->layout = 'auth';
+			return
+				$this->render('register', [
+					'model' => $registerModel
+				]);
+		}
 	}
 }
 
