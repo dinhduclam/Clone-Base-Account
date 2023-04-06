@@ -65,7 +65,14 @@ class AuthController extends BaseController
 				]);
 		}
 	}
-}
 
+	// GET: /logout
+	// POST: /logout
+	public function logout()
+	{
+		Application::$app->session->del('username');
+		Application::$app->response->redirect('/login');
+	}
+}
 
 ?>

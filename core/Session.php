@@ -18,4 +18,9 @@ class Session
 		echo '<br>';
         return $_SESSION[$key] ?? false;
     }
+
+    public function del($key)
+    {
+        unset($_SESSION[$key]);
+    }
 }
