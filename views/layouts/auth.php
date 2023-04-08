@@ -10,13 +10,16 @@
 	</head>
 
 	<body>
-		<div id='master' class='wf'><div id='page'>
+		<div id='master'>
 			<div id='auth' class='scrollable' data-autoscroll='1' data-autohide='1'>
 				<div class='box-wrap'>
-					<div class='auth-logo'><a href='https://base.vn'><img src='https://share-gcdn.basecdn.net/brand/logo.full.png' /></a></div>
+					<div class='auth-logo'>
+						<a href='https://base.vn'>
+							<img src='https://share-gcdn.basecdn.net/brand/logo.full.png' />
+						</a>
+					</div>
+					{{content}}
 				</div>
-
-				{{content}}
 			</div>
 		</div>
 	</body>
