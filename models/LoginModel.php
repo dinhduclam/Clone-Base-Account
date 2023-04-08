@@ -6,12 +6,21 @@ class LoginModel extends BaseModel
 	public string $email = '';
 	public string $password = '';
 
-	public function __construct($data)
+	public function __construct($data = [])
 	{
 		$this->loadData($data);
 	}
 
 	public function validate(){
+		if (!$this->email){
+			$this->setError('missing email');
+			return false;
+		}
+		if (!$this->password){
+			$this->setError('missing password');
+			return false;
+		}
+
 		$stmt = Application::$app->db->prepare("SELECT email, username, password FROM credentials WHERE email = ?");
 		$stmt->bind_param("s", $this->email);
 		$stmt->execute();
@@ -20,11 +29,10 @@ class LoginModel extends BaseModel
 		$userData = $result->fetch_assoc();
 		if (password_verify($this->password, $userData['password']))
 			return $userData['username'];
-		else
+		else{
 			return false;
+		}
 	}
-
-
 }
 
 ?>

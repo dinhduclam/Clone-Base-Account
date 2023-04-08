@@ -14,8 +14,6 @@ class Session
 
     public function get($key)
     {
-		var_dump($_SESSION);
-		echo '<br>';
         return $_SESSION[$key] ?? false;
     }
 

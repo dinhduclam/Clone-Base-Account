@@ -9,9 +9,8 @@ class RegisterModel extends BaseModel
 	public string $name = '';
 	public string $password = '';
 	public string $confirmPassword = '';
-	public string $error = '';
 
-	public function __construct($data)
+	public function __construct($data = [])
 	{
 		$this->loadData($data);
 	}
@@ -19,35 +18,35 @@ class RegisterModel extends BaseModel
 	public function validate()
 	{
 		if (!$this->email){
-			$this->error = 'missing email';
+			$this->setError('missing email');
 			return false;
 		}
 		if (!$this->username){
-			$this->error = 'missing username';
+			$this->setError('missing username');
 			return false;
 		}
 		if (!$this->name){
-			$this->error = 'missing name';
+			$this->setError('missing name');
 			return false;
 		}
 		if (!$this->password){
-			$this->error = 'missing password';
+			$this->setError('missing password');
 			return false;
 		}
 		if (!$this->email){
-			$this->error = 'missing email';
+			$this->setError('missing email');
 			return false;
 		}
 		if ($this->password != $this->confirmPassword){
-			$this->error = 'confirm password';
+			$this->setError('confirm password');
 			return false;
 		}
 		if ($this->emailDuplicated()){
-			$this->error = 'email existed';
+			$this->setError('email existed');
 			return false;
 		}
 		if ($this->usernameDuplicated()){
-			$this->error = 'username existed';
+			$this->setError('username existed');
 			return false;
 		}
 
@@ -64,7 +63,7 @@ class RegisterModel extends BaseModel
 		$stmt1 = Application::$app->db->prepare("INSERT INTO credentials(email, username, password) VALUES (?, ?, ?)");
 		$stmt1->bind_param("sss", $this->email, $this->username, $passwordHash);
 
-		$stmt2 = Application::$app->db->prepare("INSERT INTO users(firstname, lastname, email, username) VALUES (?, ?, ?, ?)");
+		$stmt2 = Application::$app->db->prepare("INSERT INTO accounts(firstname, lastname, email, username) VALUES (?, ?, ?, ?)");
 		$stmt2->bind_param("ssss", $firstname, $lastname, $this->email, $this->username);
 
 		mysqli_begin_transaction(Application::$app->db);
@@ -74,7 +73,7 @@ class RegisterModel extends BaseModel
 			$stmt2->execute();
 			mysqli_commit(Application::$app->db);
 		} catch (Exception $e) {
-			$this->error = "Something went wrong!";
+			$this->setError("Something went wrong!");
 			mysqli_rollback(Application::$app->db);
 			return false;
 		}

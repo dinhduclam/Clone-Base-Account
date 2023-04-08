@@ -30,12 +30,13 @@ class AuthController extends BaseController
 			Application::$app->session->set('username', $res);
 			Application::$app->response->redirect("/account");
 		}
-		else {
+		else{
+			$param = [
+				"email" => $loginModel->email
+			];
 			$this->layout = 'auth';
 			return
-				$this->render('login', [
-					'model' => $loginModel
-				]);
+				$this->render('login', $param);
 		}
 	}
 
@@ -58,11 +59,13 @@ class AuthController extends BaseController
 			Application::$app->response->redirect("/login");
 		}
 		else {
+			$param = [
+				"email" => $registerModel->email,
+				"username" => $registerModel->username,
+				"name" => $registerModel->name
+			];
 			$this->layout = 'auth';
-			return
-				$this->render('register', [
-					'model' => $registerModel
-				]);
+			return $this->render('register', $param);
 		}
 	}
 
@@ -70,7 +73,7 @@ class AuthController extends BaseController
 	// POST: /logout
 	public function logout()
 	{
-		Application::$app->session->del('username');
+		session_destroy();
 		Application::$app->response->redirect('/login');
 	}
 }

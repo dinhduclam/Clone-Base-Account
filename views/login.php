@@ -3,7 +3,7 @@
 	<form action="" method="POST" id="form-login">
 		<div class="login-row">
 			<label>Email</label>
-			<input type="email" name="email" class="form-input" placeholder="Your email">
+			<input type="email" name="email" value="<?php echo $email ?? '' ?>" class="form-input" placeholder="Your email">
 		</div>
 
 		<div class="login-row">
