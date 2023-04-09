@@ -2,6 +2,10 @@
 	box-sizing: border-box;
 }
 
+body{
+	font-family: 'Roboto', 'Segoe UI', sans-serif;
+}
+
 #master{
 	margin:0;
 	left:0px;
@@ -58,6 +62,7 @@
 	padding: 20px;
 	border-bottom: 2px solid #eee;
 	margin: 0;
+	padding-top: 0;
 }
 
 #form-login label{
@@ -94,10 +99,25 @@
 	width: 100%;
 }
 
+#form-login input[type="checkbox"]{
+	vertical-align: -2px;
+}
+
 #form-login .main-form{
 	padding: 30px 0px;
 }
 
 #form-login .login-row{
 	padding-bottom: 20px;
+}
+
+#form-login .checkbox{
+	font-size: 13px;
+	color: #888;
+}
+
+.login-row input:focus{
+	box-shadow: 0px 0px 8px rgba(66,184,20,0.3);
+	border-color:rgba(66,184,20,0.7);
+	
 }

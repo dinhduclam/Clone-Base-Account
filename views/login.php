@@ -14,8 +14,8 @@
 			<input type="password" name="password" class="form-input" placeholder="Your password">
 		</div>
 
-		<div class="login-row">
-			<input type="checkbox">
+		<div class="login-row checkbox">
+			<input type="checkbox" checked>
 			Keep me logged in
 		</div>
 
