@@ -11,6 +11,9 @@ class View
         }
 		else $layoutName = 'main';
 
+		foreach ($params as $key => $value) {
+            $$key = $value;
+        }
         $viewContent = $this->renderViewOnly($view, $params);
 
         ob_start();
@@ -22,7 +25,7 @@ class View
 
     public function renderViewOnly($view, array $params)
     {
-        foreach ($params as $key => $value) {
+		foreach ($params as $key => $value) {
             $$key = $value;
         }
         ob_start();

@@ -6,6 +6,10 @@ body{
 	font-family: 'Roboto', 'Segoe UI', sans-serif;
 }
 
+.-ap{
+	font-family: 'ap';
+}
+
 #master{
 	margin:0;
 	left:0px;
@@ -119,5 +123,283 @@ body{
 .auth-row input:focus{
 	box-shadow: 0px 0px 8px rgba(66,184,20,0.3);
 	border-color:rgba(66,184,20,0.7);
-	
+}
+
+.register{
+	text-align: center;
+}
+
+#left-panel{
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	background-color: #21272d;
+	width: 90px;
+}
+
+#left-panel .item{
+	text-align: center;
+    padding: 4px 0;
+    cursor: pointer;
+    position: relative;
+    color: rgba(255,255,255,0.3);
+}
+
+#left-panel .info{
+	font-size: 12px;
+	padding-bottom: 15px;
+}
+
+#left-panel .icon{
+	font-size: 24px;
+	text-align: center;
+	padding: 14px 0;
+}
+
+.icon-account_circle:before {
+	content: "\e863";
+}
+
+#left-panel .active{
+	color: #fff;
+    background: rgba(0,0,0,0.2);
+}
+
+#left-panel .item .avatar{
+	width: 32px;
+    height: 32px;
+    margin: auto;
+    overflow: hidden;
+	margin-top: 10px;
+}
+
+#left-panel .item .avatar img{
+	width: 32px;
+    height: 32px;
+    margin: auto;
+    overflow: hidden;
+	border-radius: 16px;
+}
+
+#right-panel{
+	position: fixed;
+	width: 270px;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	color: #999;
+	border-left: 1px solid rgba(0,0,0,0.1);
+	background-color: #f6f6f6;
+}
+
+#right-panel .userinfo{
+	padding: 13px 15px;
+	border-bottom: 1px solid #eee;
+}
+
+#right-panel .userinfo .name{
+	font-size: 22px;
+	font-weight: 300;
+	color: #111;
+}
+
+#right-panel .userinfo .info{
+	font-size: 14px;
+	padding-top: 4px;
+}
+
+#right-panel .title{
+	font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #999;
+    padding: 20px 20px 15px 20px;
+    border-top: 1px solid #eee;
+}
+
+#right-panel .box{
+	padding-bottom: 20px;
+}
+
+#right-panel .row{
+	position: relative;
+    font-size: 14px;
+    cursor: pointer;
+    display: block;
+    font-weight: normal;
+    color: #555;
+    padding: 10px 10px 10px 20px;
+    border-radius: 3px;
+}
+
+#right-panel .box .active {
+    color: #267cde;
+    font-weight: bold;
+}
+
+#right-panel .row .icon{
+	display: inline;
+}
+
+#right-panel .row .name{
+	display: inline;
+	padding-left: 10px;
+}
+
+.icon-gear:before {
+	content: "\f02f";
+}
+
+#main-page{
+	position: absolute;
+	left: 90px;
+	top: 0;
+	right: 270px
+}
+
+#main-page .user-title{
+	margin: 0 20px;
+	height: 74px;
+	border-bottom: 2px solid #eee;
+}
+
+#main-page .user-title .box-title{
+	padding-top: 18px;
+	padding-left: 40px;
+	float: left;
+	position: relative;
+}
+
+#main-page .user-title .box-title label{
+	text-transform: uppercase;
+	color: #ccc;
+	font-size: 11px;
+}
+
+#main-page .user-title .box-title .title{
+	font-size: 18px;
+    font-weight: 300;
+    color: #222;
+}
+
+#main-page .user-title .box-title:before{
+	font-family: ap;
+	content:"\e094";
+	position:absolute;
+	font-size:24px;
+ 	color:#aaa;
+	left:0px;
+	top:20px;
+}
+
+#main-page .user-title .button{
+	float: right;
+    padding: 9px 15px;
+    background-color: #17C286;
+	color: #fff;
+	cursor: pointer;
+	font-size: 15px;
+	margin-top: 19px;
+}
+
+.icon-arrow_upward:before{
+	content: "\e5d8";
+}
+
+#profile{
+	max-width: 600px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+#profile .summary{
+	padding-bottom: 30px;
+	position: relative;
+}
+
+#profile .summary .avatar{
+	position: absolute;
+	top: 10px;
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	overflow: hidden;
+}
+
+#profile .summary .avatar img{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	overflow: hidden;
+}
+
+#profile .summary .summary-info{
+	margin-left: 120px;
+}
+#profile .summary .summary-info .fullname{
+	font-size: 26px;
+	color:#111;
+}
+#profile .summary .summary-info .title{
+	font-size: 16px;
+    font-weight: 300;
+    color: #aaa;
+	margin-top: 8px;
+	margin-bottom: 14px;
+}
+#profile .summary .summary-info .info-row{
+	font-size: 14px;
+	margin-top: 8px;
+}
+#profile .summary .summary-info .info-row .value{
+	display: inline-block;
+	margin-left: 110px
+}
+#profile .summary .summary-info .info-row .field{
+	display: inline-block;
+	position: absolute;
+	font-weight: 500;
+	color: #666;
+}
+#profile .box-info{
+	padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+#profile .box-info .box-title{
+	font-weight: 500;
+    font-size: 13px;
+    color: #aaa;
+    border-bottom: 1px solid #ddd;
+	padding: 15px 0;
+}
+
+#profile .box-info .info-row{
+	padding: 13px 0px;
+	position: relative;
+	border-bottom: 1px solid #ddd;
+	font-size: 14px;
+}
+
+#profile .box-info .info-none{
+	padding: 20px;
+	font-size: 14px;
+	text-align: center;
+	margin-top:25px;
+	color: #888;
+    background-color: #f8f8f8;
+}
+
+#profile .box-info .info-row .field{
+	display: inline-block;
+	position: absolute;
+	font-weight: 500;
+    color: #888;
+}
+
+#profile .box-info .info-row .value{
+	display: inline-block;
+	margin-left: 160px
 }

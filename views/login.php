@@ -21,4 +21,8 @@
 
 		<input type="submit" value="Login to start working" class="form-submit">
 	</div>
+
+	<div class="register">
+		<a href="/register">Create an account</a>
+	</div>
 </form>
