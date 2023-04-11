@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:500,400,300,400italic,700,700italic,400italic,300italic&subset=vietnamese,latin">
 	<link rel="stylesheet" type="text/css" href="../../public/css/app.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://kit.fontawesome.com/077db66cfb.js" crossorigin="anonymous"></script>
 	<title> <?php echo $fullname.' - Tài khoản - True Platform' ?> </title>
 </head>
 <body>
@@ -17,51 +19,37 @@
 		</div>
 
 		<div class="item active" title="Tài khoản" data-url="account">
-			<div class="icon">
-				<span class="-ap icon-account_circle"></span>
-			</div>
+		<i class="fa-solid fa-user"></i>
 			<div class="info">Cá nhân</div>
 		</div>
 
 		<div class="item" title="Thông báo">
-			<div class="icon">
-				<span class="-ap icon-notifications"></span>
-			</div>
+			<i class="fa-solid fa-bell"></i>
 			<div class="info">Thông báo</div>
 		</div>
 
 		<div class="item">
-			<div class="icon">
-				<span class="-ap icon-users"></span>
-			</div>
+			<i class="fa-solid fa-users"></i>
 			<div class="info">Thành viên</div>
 		</div>
 
 		<div class="item item-chart url">
-			<div class="icon">
-				<span class="-ap icon-flow-merge"></span>
-			</div>
+			<i class="fa-solid fa-code-merge"></i>
 			<div class="info">Nhóm</div>
 		</div>
 
 		<div class="item">
-			<div class="icon">
-				<span class="-ap icon-change_history"></span>
-			</div>
+			<i class="fa-sharp fa-solid fa-triangle"></i>
 			<div class="info">TK Khách</div>
 		</div>
 
 		<div class="item">
-			<div class="icon">
-				<span class="-ap icon-turned_in_not"></span>
-			</div>
+			<i class="fa-solid fa-browser"></i>
 			<div class="info">Ứng dụng</div>
 		</div>
 
 		<div class="item" title="Đăng xuất" data-url="logout">
-			<div class="icon">
-				<span class="-ap icon-power_settings_new"></span>
-			</div>
+			<i class="fa-solid fa-power-off"></i>
 			<div class="info">Đăng xuất</div>
 		</div>
 
@@ -81,58 +69,44 @@
 		</div>
 		<div class="box">
 			<div class="row active">
-				<div class="icon">
-					<span class="-ap icon-gear"></span>
-				</div>
+				<i class="fa-solid fa-gear"></i>
 				<div class="name">
 					Tài khoản
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="icon">
-					<span class="-ap icon-gear"></span>
-				</div>
+				<i class="fa-solid fa-pen"></i>
 				<div class="name">
 					Chỉnh sửa
 				</div>
 			</div>
 			<div class="row">
-				<div class="icon">
-					<span class="-ap icon-gear"></span>
-				</div>
+				<i class="fa-solid fa-compass"></i>
 				<div class="name">
 					Ngôn ngữ
 				</div>
 			</div>
 			<div class="row">
-				<div class="icon">
-					<span class="-ap icon-gear"></span>
-				</div>
+				<i class="fa-solid fa-circle-exclamation"></i>
 				<div class="name">
 					Đổi mật khẩu
 				</div>
 			</div>
 			<div class="row">
-				<div class="icon">
-					<span class="-ap icon-gear"></span>
-				</div>
+				<i class="fa-solid fa-palette"></i>
 				<div class="name">
 					Đổi màu hiển thị
 				</div>
 			</div>
 			<div class="row">
-				<div class="icon">
-					<span class="-ap icon-gear"></span>
-				</div>
+				<i class="fa-solid fa-clock"></i>
 				<div class="name">
 					Lịch làm việc
 				</div>
 			</div>
 			<div class="row">
-				<div class="icon">
-					<span class="-ap icon-gear"></span>
-				</div>
+				<i class="fa-solid fa-shield"></i>
 				<div class="name">
 					Bảo mật 2 lớp
 				</div>
@@ -149,33 +123,23 @@
 
 		<div class="box">
 			<div class="row">
-				<div class="icon">
-					<span class="-ap icon-gear"></span>
-				</div>
+				<i class="fa-solid fa-clock"></i>
 				<div class="name">Lịch sử đăng nhập</div>
 			</div>
 			<div class="row">
-				<div class="icon">
-					<span class="-ap icon-gear"></span>
-				</div>
+				<i class="fa-sharp fa-solid fa-desktop"></i>
 				<div class="name">Quản lý thiết bị</div>
 			</div>
 			<div class="row">
-				<div class="icon">
-					<span class="-ap icon-gear"></span>
-				</div>
+				<i class="fa-solid fa-envelope"></i>
 				<div class="name">Tùy chỉnh email thông báo</div>
 			</div>
 			<div class="row">
-				<div class="icon">
-					<span class="-ap icon-gear"></span>
-				</div>
+				<i class="fa-solid fa-clock"></i>
 				<div class="name">Chỉnh sửa múi giờ</div>
 			</div>
 			<div class="row">
-				<div class="icon">
-					<span class="-ap icon-gear"></span>
-				</div>
+				<i class="fa-solid fa-share-nodes"></i>
 				<div class="name">Ủy quyền tạm thời</div>
 			</div>
 		</div>

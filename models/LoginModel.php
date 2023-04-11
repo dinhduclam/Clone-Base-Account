@@ -13,11 +13,11 @@ class LoginModel extends BaseModel
 
 	public function validate(){
 		if (!$this->email){
-			$this->setError('missing email');
+			$this->setError('Invalid or empty email. Please try again.');
 			return false;
 		}
 		if (!$this->password){
-			$this->setError('missing password');
+			$this->setError('Invalid password. Please try again.');
 			return false;
 		}
 
@@ -30,6 +30,7 @@ class LoginModel extends BaseModel
 		if (password_verify($this->password, $userData['password']))
 			return $userData['username'];
 		else{
+			$this->setError('Email and password doesn\'t match.');
 			return false;
 		}
 	}

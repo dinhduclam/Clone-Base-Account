@@ -20,7 +20,9 @@ abstract class BaseModel
 
 	public function hasError()
 	{
-		return strcmp($this->error, '') === 0;
+		if (!isset($this->error))
+			return false;
+		return strcmp($this->error, '') != 0;
 	}
 
 	public function getError()

@@ -32,11 +32,12 @@ class AuthController extends BaseController
 		}
 		else{
 			$param = [
-				"email" => $loginModel->email
+				"email" => $loginModel->email,
+				"hasError" => $loginModel->hasError(),
+				"error" => $loginModel->getError()
 			];
 			$this->layout = 'auth';
-			return
-				$this->render('login', $param);
+			return $this->render('login', $param);
 		}
 	}
 
@@ -62,7 +63,9 @@ class AuthController extends BaseController
 			$param = [
 				"email" => $registerModel->email,
 				"username" => $registerModel->username,
-				"name" => $registerModel->name
+				"name" => $registerModel->name,
+				"hasError" => $registerModel->hasError(),
+				"error" => $registerModel->getError()
 			];
 			$this->layout = 'auth';
 			return $this->render('register', $param);

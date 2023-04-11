@@ -89,10 +89,14 @@
 			</div>
 		</div>
 
-		<b>Tên đầy đủ:</b> <?php echo $fullname ?> <br>
-		<b>Địa chỉ email:</b> <?php echo $title ?? 'Không có thông tin'?><br>
-		<b>Địa chỉ email:</b> <?php echo $email ?? 'Không có thông tin'?><br>
-		<b>Số điện thoại:</b> <?php echo $phone ?? 'Không có thông tin'?><br>
-		<b>Địa chỉ:</b> <?php echo $address ?? 'Không có thông tin'?><br>
+		<div id="res">
+			<b>Tên đầy đủ:</b> <div class="fullname"></div>
+			<b>Title:</b> <div class="title"></div>
+			<b>Địa chỉ email:</b> <div class="email"></div>
+			<b>Số điện thoại:</b> <div class="phone"></div>
+			<b>Địa chỉ:</b> <div class="address"></div>
+		</div>
 	</div>
 </div>
+
+<script src="../public/js/account.js"></script>

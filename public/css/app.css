@@ -6,10 +6,6 @@ body{
 	font-family: 'Roboto', 'Segoe UI', sans-serif;
 }
 
-.-ap{
-	font-family: 'ap';
-}
-
 #master{
 	margin:0;
 	left:0px;
@@ -146,19 +142,15 @@ body{
     color: rgba(255,255,255,0.3);
 }
 
-#left-panel .info{
+#left-panel .item .info{
 	font-size: 12px;
 	padding-bottom: 15px;
 }
 
-#left-panel .icon{
-	font-size: 24px;
+#left-panel .item i::before{
+	display: inline-block;
 	text-align: center;
-	padding: 14px 0;
-}
-
-.icon-account_circle:before {
-	content: "\e863";
+	padding: 11px 0;
 }
 
 #left-panel .active{
@@ -172,6 +164,7 @@ body{
     margin: auto;
     overflow: hidden;
 	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 #left-panel .item .avatar img{
@@ -235,7 +228,16 @@ body{
 
 #right-panel .box .active {
     color: #267cde;
-    font-weight: bold;
+	font-weight: bold;
+}
+
+#right-panel .box i::before{
+    color: #aaa;
+	display: inline-block;
+	width: 14px;
+}
+#right-panel .box .active i::before{
+    color: #267cde;
 }
 
 #right-panel .row .icon{
@@ -245,10 +247,6 @@ body{
 #right-panel .row .name{
 	display: inline;
 	padding-left: 10px;
-}
-
-.icon-gear:before {
-	content: "\f02f";
 }
 
 #main-page{
@@ -301,10 +299,6 @@ body{
 	cursor: pointer;
 	font-size: 15px;
 	margin-top: 19px;
-}
-
-.icon-arrow_upward:before{
-	content: "\e5d8";
 }
 
 #profile{
@@ -402,4 +396,60 @@ body{
 #profile .box-info .info-row .value{
 	display: inline-block;
 	margin-left: 160px
+}
+
+#dialog-alert .background{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.6);
+}
+
+#dialog-alert .wrapper{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+	background-color: #fff;
+	width: 430px;
+	height: 162px;
+	border-radius: 2px;
+}
+
+#dialog-alert .wrapper .content{
+	height: 116px;
+	border-bottom: 1px solid #ccc;
+	padding: 40px 0;
+	line-height: 35px;
+	text-align: center;
+}
+
+#dialog-alert .wrapper .confirm-button{
+	color: #c65144;
+    font-weight: bold;
+	font-size: 15px;
+	text-align: center;
+    cursor: pointer;
+	padding: 13px 0px;
+}
+
+#dialog-alert .wrapper .content .close-button{
+	position: absolute;
+    cursor: pointer;
+    color: #999;
+    right: 10px;
+    top: 10px;
+    padding: 7px 7px;
+    border: 1px solid transparent;
+    border-radius: 15px;
+	line-height: 10px;
+}
+
+#dialog-alert .wrapper .content .close-button:hover{
+	background-color: #fcfcfc;
+	border:1px solid #ddd;
+	color:#111;
 }
