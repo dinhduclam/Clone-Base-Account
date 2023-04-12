@@ -14,14 +14,18 @@
 			<input type="password" name="password" class="form-input" placeholder="Your password">
 		</div>
 
+		<div class="auth-row">
+			<label>Captcha</label>
+			<div class="g-recaptcha" data-sitekey="<?php echo $siteKey; ?>">
+		</div>
+
 		<div class="auth-row checkbox">
 			<input type="checkbox" checked>
 			Keep me logged in
 		</div>
 
-		<?php 
-			imagettftext("aaa");
-		?>
+		</div>
+
 
 		<input type="submit" value="Login to start working" class="form-submit">
 	</div>

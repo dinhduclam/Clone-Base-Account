@@ -7,6 +7,7 @@ require_once("BaseController.php");
 
 class AuthController extends BaseController
 {
+	private $siteKey = '6Lfbl34lAAAAAJaUgxAQMX2I52PmWfIi3v9y99fl';
 	public function __construct()
 	{
 	}
@@ -18,7 +19,9 @@ class AuthController extends BaseController
 			header('Location: /account');
 		}
 		$this->layout = 'auth';
-		return $this->render('login');
+		return $this->render('login', [
+			"siteKey" => $this->siteKey
+		]);
 	}
 
 	// POST: /login
@@ -38,7 +41,8 @@ class AuthController extends BaseController
 			$param = [
 				"email" => $loginModel->email,
 				"hasError" => $loginModel->hasError(),
-				"error" => $loginModel->getError()
+				"error" => $loginModel->getError(),
+				"siteKey" => $this->siteKey
 			];
 			$this->layout = 'auth';
 			return $this->render('login', $param);
