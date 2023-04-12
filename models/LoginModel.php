@@ -21,12 +21,11 @@ class LoginModel extends BaseModel
 			return false;
 		}
 
-		$recaptcha_secret = "6Lfbl34lAAAAAPW92l8MyMWmqncvOfVwy-tOEonZ";
+		$recaptcha_secret = Application::$app->env['CAPTCHA_SECRET'];
 		$recaptcha_response = $_POST['g-recaptcha-response'];
 		$remote_ip = $_SERVER['SERVER_NAME'];
 
-		// Kiểm tra reCaptcha
-		$url = "https://www.google.com/recaptcha/api/siteverify";
+		$url = Application::$app->env['RECAPTCHA_URL'];
 		$data = array(
 			'secret' => $recaptcha_secret,
 			'response' => $recaptcha_response,

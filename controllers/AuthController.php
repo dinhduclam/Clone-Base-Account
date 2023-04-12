@@ -7,9 +7,11 @@ require_once("BaseController.php");
 
 class AuthController extends BaseController
 {
-	private $siteKey = '6Lfbl34lAAAAAJaUgxAQMX2I52PmWfIi3v9y99fl';
+	private string $siteKey;
+
 	public function __construct()
 	{
+		$this->siteKey = Application::$app->env['SITE_KEY'];
 	}
 
 	// GET: /login
@@ -83,8 +85,7 @@ class AuthController extends BaseController
 		}
 	}
 
-	// GET: /logout
-	// POST: /logout
+	// GET: /logout?token=?
 	public function logout()
 	{
 		$data = Application::$app->request->getBody();

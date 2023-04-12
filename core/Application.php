@@ -17,9 +17,11 @@ class Application
 	public Session $session;
 	public View $view;
 	public $db;
+	public $env;
 
 	public function __construct($rootPath)
 	{
+		$this->env = parse_ini_file("../.env");
 		Application::$ROOT_PATH = $rootPath;
 		$this->request = new Request();
 		$this->response = new Response();
@@ -38,10 +40,10 @@ class Application
 
 	public function connectDb()
 	{
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-		$dbname = 'base_account';
+		$servername = $this->env['SERVER_NAME'];
+		$username = $this->env['USER_NAME'];
+		$password = $this->env['PASSWORD'];
+		$dbname = $this->env['DBNAME'];
 
 		$this->db = new mysqli($servername, $username, $password, $dbname);
 
