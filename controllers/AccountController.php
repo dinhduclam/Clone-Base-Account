@@ -20,6 +20,9 @@ class AccountController extends BaseController
 		$accountModel = new AccountModel();
 		$accountModel->loadAccountFromDb($username);
 
+		$logoutModel = new LogoutModel();
+		$token = $logoutModel->generateToken();
+
 		$param = [
 			"firstname" => $accountModel->firstname,
 			"lastname" => $accountModel->lastname,
@@ -29,7 +32,8 @@ class AccountController extends BaseController
 			"title" => $accountModel->title,
 			"avatar" => $accountModel->avatar,
 			"phone" => $accountModel->phone,
-			"address" => $accountModel->address
+			"address" => $accountModel->address,
+			"logoutToken" => $token
 		];
 
 		return $this->render('account', $param);

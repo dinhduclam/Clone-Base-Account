@@ -1,6 +1,7 @@
 <?php
 
 require_once("../models/LoginModel.php");
+require_once("../models/LogoutModel.php");
 require_once("../models/RegisterModel.php");
 require_once("BaseController.php");
 
@@ -76,8 +77,17 @@ class AuthController extends BaseController
 	// POST: /logout
 	public function logout()
 	{
-		session_destroy();
-		Application::$app->response->redirect('/login');
+		$data = Application::$app->request->getBody();
+		$logoutModel = new LogoutModel($data);
+
+		if ($logoutModel->validate()){
+			session_unset();
+			session_destroy();
+			header('Location: /login');
+		}
+		else {
+			header("Location: /account");
+		}
 	}
 }
 
