@@ -3,7 +3,6 @@
 require_once __DIR__."/../core/Application.php";
 require_once __DIR__."/../controllers/AuthController.php";
 require_once __DIR__."/../controllers/AccountController.php";
-require_once __DIR__."/../captcha/captcha.php";
 
 $app = new Application(dirname(__DIR__));
 
