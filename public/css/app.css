@@ -153,6 +153,11 @@ body{
 	padding: 11px 0;
 }
 
+#left-panel .item i{
+	padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 #left-panel .active{
 	color: #fff;
     background: rgba(0,0,0,0.2);
@@ -267,6 +272,7 @@ body{
 	padding-left: 40px;
 	float: left;
 	position: relative;
+	cursor: pointer;
 }
 
 #main-page .user-title .box-title label{
@@ -281,14 +287,13 @@ body{
     color: #222;
 }
 
-#main-page .user-title .box-title:before{
-	font-family: ap;
-	content:"\e094";
-	position:absolute;
-	font-size:24px;
- 	color:#aaa;
-	left:0px;
-	top:20px;
+#main-page .user-title .box-title i{
+	position: absolute;
+    width: 24px;
+    height: 24px;
+	color: #aaa;
+	top: 36px;
+	left: 2px;
 }
 
 #main-page .user-title .button{
@@ -299,6 +304,10 @@ body{
 	cursor: pointer;
 	font-size: 15px;
 	margin-top: 19px;
+}
+
+#main-page .user-title .button i{
+	width: 25px;
 }
 
 #profile{

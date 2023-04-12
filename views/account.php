@@ -1,13 +1,14 @@
 <div id="main-page">
 	<div class="user-title">
 		<div class="box-title">
+			<i class="fa-solid fa-arrow-left fa-xl"></i>
 			<label>Tài khoản</label>
 			<div class="title">
 				Đình Đức Lâm  ·  Software Engineer
 			</div>
 		</div>
 		<div class="button">
-			<span class="-ap icon-arrow_upward"></span>
+			<i class="fa-solid fa-arrow-up fa-sm"></i>
 			Chỉnh sửa tài khoản
 		</div>
 	</div>
