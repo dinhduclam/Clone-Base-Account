@@ -33,7 +33,9 @@ class AccountController extends BaseController
 			"avatar" => $accountModel->avatar,
 			"phone" => $accountModel->phone,
 			"address" => $accountModel->address,
-			"logoutToken" => $token
+			"logoutToken" => $token,
+			"hasError" => $accountModel->hasError(),
+			"error" => $accountModel->getError(),
 		];
 
 		return $this->render('account', $param);
@@ -78,7 +80,7 @@ class AccountController extends BaseController
 
 		$accountModel = new AccountModel($data);
 		$accountModel->update();
-		header("Location: /account");
+		$this->show("Location: /account");
 	}
 }
 

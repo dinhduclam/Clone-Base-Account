@@ -149,7 +149,7 @@
 
 	<div id="dialog">
 		<div class="background"></div>
-		<form action="/api/account/edit" method="POST" id="edit-profile">
+		<form id="edit-profile" action="/api/account/edit" method="POST" enctype="multipart/form-data">
 			<div class="header">
 				Chỉnh sửa thông tin cá nhân
 			</div>

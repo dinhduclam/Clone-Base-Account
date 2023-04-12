@@ -24,6 +24,19 @@ class AccountModel extends BaseModel
 			return false;
 		}
 
+		if (!isset($this->firstname) || $this->firstname == ''){
+			$this->setError("Invalid first name");
+			return false;
+		}
+		if (!isset($this->lastname) || $this->lastname == ''){
+			$this->setError("Invalid last name");
+			return false;
+		}
+
+		if (!$this->validateAvatar()){
+			return false;
+		}
+
 		return true;
 	}
 
@@ -44,5 +57,23 @@ class AccountModel extends BaseModel
 		$result = $stmt->get_result();
 		$account = $result->fetch_assoc();
 		$this->loadData($account);
+	}
+
+	private function validateAvatar(){
+		$check = getimagesize($_FILES["avatar"]["tmp_name"]);
+
+		if($check == false) {
+			return false;
+		}
+
+		$target_dir = "uploads/";
+		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+		$target_file = $target_dir . $this->username . '.' . $imageFileType;
+
+		if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
