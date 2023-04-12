@@ -19,6 +19,10 @@
 			Keep me logged in
 		</div>
 
+		<?php 
+			imagettftext("aaa");
+		?>
+
 		<input type="submit" value="Login to start working" class="form-submit">
 	</div>
 

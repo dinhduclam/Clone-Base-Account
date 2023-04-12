@@ -8,6 +8,8 @@
 		<link rel="stylesheet" type="text/css" href="../../public/css/app.css">
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<script src="https://kit.fontawesome.com/077db66cfb.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="../public/css/account.css">
+		<script src="../public/js/account.js"></script>
 	</head>
 	<body>
 		<div id="left-panel">
@@ -144,5 +146,90 @@
 			</div>
 
 		</div>
+
+	<div id="dialog">
+		<div class="background"></div>
+		<form action="/api/account/edit" method="POST" id="edit-profile">
+			<div class="header">
+				Chỉnh sửa thông tin cá nhân
+			</div>
+			<div class="row">
+				<div class="label">
+					<div class="main-label">Tên của bạn</div>
+					<div class="sub-label">Tên của bạn</div>
+				</div>
+				<input type="text" name="firstname" placeholder="Tên của bạn" require>
+			</div>
+
+			<div class="row">
+				<div class="label">
+					<label class="main-label">Tên của bạn</label>
+					<label class="sub-label">Tên của bạn</label>
+				</div>
+				<input type="text" name="lastname" placeholder="Họ của bạn" require>
+			</div>
+
+			<div class="row">
+				<div class="label">
+					<label class="main-label">Email</label>
+					<label class="sub-label">Email của bạn</label>
+				</div>
+				<input type="text" value="<?php echo $email?>" readonly>
+			</div>
+
+			<div class="row">
+				<div class="label">
+					<label class="main-label">Username</label>
+					<label class="sub-label">Username của bạn</label>
+				</div>
+				<input type="text" name="username" value="<?php echo $username?>" readonly>
+			</div>
+
+			<div class="row">
+				<div class="label">
+					<label class="main-label">Vị trí công việc</label>
+					<label class="sub-label">Vị trí công việc</label>
+				</div>
+				<input type="text" name="title" placeholder="Vị trí công việc">
+			</div>
+
+			<div class="row">
+				<div class="label">
+					<label class="main-label">Ảnh đại diện</label>
+					<label class="sub-label">Ảnh đại diện</label>
+				</div>
+				<input type="file" name="avatar">
+			</div>
+
+			<div class="row">
+				<div class="label">
+					<label class="main-label">Ngày tháng năm sinh</label>
+					<label class="sub-label">Ngày tháng năm sinh</label>
+				</div>
+				<input type="date" name="dob" placeholder="Vị trí công việc">
+			</div>
+
+			<div class="row">
+				<div class="label">
+					<label class="main-label">Số điện thoại</label>
+					<label class="sub-label">Số điện thoại</label>
+				</div>
+				<input type="text" name="phone" placeholder="Số điện thoại">
+			</div>
+
+			<div class="row">
+				<div class="label">
+					<label class="main-label">Chỗ ở hiện nay</label>
+					<label class="sub-label">Chỗ ở hiện nay</label>
+				</div>
+				<input type="text" name="address" placeholder="Chỗ ở hiện nay">
+			</div>
+
+			<div class="button-list">
+				<div class="cancel" onclick="closeEditProfile()">Bỏ qua</div>
+				<button class="submit" type="submit">Cập nhật</button>
+			</div>
+		</form>
+	</div>
 	</body>
 </html>

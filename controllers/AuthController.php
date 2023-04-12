@@ -14,6 +14,9 @@ class AuthController extends BaseController
 	// GET: /login
 	public function login()
 	{
+		if (isset($_SESSION['username'])){
+			header('Location: /account');
+		}
 		$this->layout = 'auth';
 		return $this->render('login');
 	}
@@ -45,6 +48,9 @@ class AuthController extends BaseController
 	// GET: /register
 	public function register()
 	{
+		if (isset($_SESSION['username'])){
+			header('Location: /account');
+		}
 		$this->layout = 'auth';
 		echo $this->render('register');
 	}

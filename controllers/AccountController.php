@@ -55,6 +55,7 @@ class AccountController extends BaseController
 			"email" => $accountModel->email,
 			"username" => $username,
 			"title" => $accountModel->title,
+			"dob" => $accountModel->dob,
 			"avatar" => $accountModel->avatar,
 			"phone" => $accountModel->phone,
 			"address" => $accountModel->address
@@ -71,12 +72,13 @@ class AccountController extends BaseController
 			return null;
 		}
 		$data = Application::$app->request->getBody();
-		if ($username != $data[$username]){
+		if ($username != $data['username']){
 			return null;
 		}
 
 		$accountModel = new AccountModel($data);
 		$accountModel->update();
+		header("Location: /account");
 	}
 }
 

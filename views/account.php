@@ -4,10 +4,10 @@
 			<i class="fa-solid fa-arrow-left fa-xl"></i>
 			<label>Tài khoản</label>
 			<div class="title">
-				Đình Đức Lâm  ·  Software Engineer
+				<?php echo $fullname . '  ·  ' . $title  ?>
 			</div>
 		</div>
-		<div class="button">
+		<div class="button" onclick="openEditProfile()">
 			<i class="fa-solid fa-arrow-up fa-sm"></i>
 			Chỉnh sửa tài khoản
 		</div>
@@ -20,17 +20,17 @@
 			</div>
 			<div class="summary-info">
 				<div class="fullname">
-					Đình Đức Lâm
+					<?php echo $fullname ?>
 				</div>
 				<div class="title">
-					Software Engineer
+					<?php echo $title ?>
 				</div>
 				<div class="info-row">
 					<div class="field">
 						Địa chỉ email
 					</div>
 					<div class="value">
-						lam.dinh@platform.inc
+						<?php echo $email ?>
 					</div>
 				</div>
 				<div class="info-row">
@@ -38,7 +38,7 @@
 						Số điện thoại
 					</div>
 					<div class="value">
-						0969582001
+						<?php echo $phone ?? "Không có thông tin" ?>
 					</div>
 				</div>
 			</div>
@@ -50,7 +50,7 @@
 					Địa chỉ
 				</div>
 				<div class="value">
-					Số 36 ngõ 8 Bùi Ngọc Dương, Bạch Mai, Hai Bà Trưng, Hà Nội
+					<?php echo $address ?? "Không có thông tin" ?>
 				</div>
 			</div>
 		</div>
@@ -89,15 +89,5 @@
 				Không có thông tin.
 			</div>
 		</div>
-
-		<div id="res">
-			<b>Tên đầy đủ:</b> <div class="fullname"></div>
-			<b>Title:</b> <div class="title"></div>
-			<b>Địa chỉ email:</b> <div class="email"></div>
-			<b>Số điện thoại:</b> <div class="phone"></div>
-			<b>Địa chỉ:</b> <div class="address"></div>
-		</div>
 	</div>
 </div>
-
-<script src="../public/js/account.js"></script>

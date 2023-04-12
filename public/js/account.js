@@ -1,15 +1,10 @@
 function getAccountInfo(){
-	$.ajax({
+	return $.ajax({
 		url: 'api/account/info',
 		type: 'GET',
 		dataType: 'json',
 		success: function(data){
-			console.log(data.firstname)
-			$("#res .fullname").text(data.lastname + ' ' + data.firstname)
-			$("#res .title").text(data.title)
-			$("#res .email").text(data.email)
-			$("#res .phone").text(data.phone)
-			$("#res .address").text(data.address)
+			return data;
 		}
 	});
 }
@@ -26,4 +21,21 @@ function editAccount(){
 		  console.log(response);
 		}
 	  });
+}
+
+function closeEditProfile(){
+	$("#dialog").hide()
+}
+
+async function openEditProfile(){
+	data = await getAccountInfo()
+	jQuery("input[name='firstname']").val(data.firstname)
+	jQuery("input[name='lastname']").val(data.lastname)
+	jQuery("input[name='email']").val(data.email)
+	jQuery("input[name='username']").val(data.username)
+	jQuery("input[name='title']").val(data.title)
+	jQuery("input[name='dob']").val(data.dob)
+	jQuery("input[name='phone']").val(data.phone)
+	jQuery("input[name='address']").val(data.address)
+	$("#dialog").show()
 }

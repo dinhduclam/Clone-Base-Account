@@ -9,6 +9,7 @@ class AccountModel extends BaseModel
 	protected string $username;
 	public ?string $title;
 	public ?string $avatar;
+	public ?string $dob;
 	public ?string $phone;
 	public ?string $address;
 
@@ -28,9 +29,8 @@ class AccountModel extends BaseModel
 
 	public function update(){
 		if ($this->validate()){
-			$stmt = Application::$app->db->prepare("UPDATE accounts SET firstname=?,lastname=?,title=?,avatar=?,phone=?,address=? WHERE username=?");
-			$stmt->bind_parem("sssss", $this->firstname, $this->lastname, $this->title, $this->avatar, $this->address);
-			$stmt->bind_param("s", $this->username);
+			$stmt = Application::$app->db->prepare("UPDATE accounts SET firstname=?,lastname=?,title=?,dob=?,avatar=?,phone=?,`address`=? WHERE username=?");
+			$stmt->bind_param("ssssssss", $this->firstname, $this->lastname, $this->title, $this->dob, $this->avatar, $this->phone, $this->address, $this->username);
 			$stmt->execute();
 			$result = $stmt->get_result();
 			return $result;
