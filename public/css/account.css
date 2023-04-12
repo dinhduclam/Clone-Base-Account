@@ -1,0 +1,100 @@
+#dialog{
+	display: none;
+}
+
+#dialog .background{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.2);
+}
+
+#dialog form{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 5px;
+	width: 760px;
+	height: 700px;
+	background-color: #fff;
+	overflow: hidden;
+}
+
+#dialog form .header{
+	padding: 20px;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+	background-color: #eee;
+	color: #555;
+	font-size: 16px;
+    font-weight: bold;
+}
+
+#dialog form .row{
+	padding: 10px 20px;
+}
+
+#dialog form .label{
+	display: inline-block;
+	width: 180px;
+}
+
+#dialog form .label .main-label{
+	display: block;
+	font-weight: 500;
+    font-size: 14px;
+}
+
+#dialog form .label .sub-label{
+	display: block;
+	font-size: 12px;
+    color: #999;
+	margin-top: 1px;
+}
+
+#dialog form input{
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	margin-left: 20px;
+	height: 32px;
+	padding: 6px 8px;
+	position: relative;
+	top: -8px;
+    width: 513px;
+}
+
+#dialog .button-list{
+	margin: 5px 20px;
+	padding-top: 15px;
+	border-top: 1px dotted #ccc;
+}
+
+#dialog .button-list .cancel{
+	padding: 11px 0px;
+    width: 47%;
+	background-color: #ddd;
+    color: #666;
+	border-radius: 3px;
+	border: none;
+	text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+	display: inline-block;
+}
+
+#dialog .button-list .submit{
+	padding: 11px 0px;
+    width: 47%;
+	background-color: #42b814;
+    color: #fff;
+	border-radius: 3px;
+	border: none;
+	text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+	font-weight: bold;
+	margin-left: 36px;
+}
