@@ -26,6 +26,11 @@
 			<input type="password" name="confirmPassword" class="form-input" placeholder="Your password">
 		</div>
 
+		<div class="auth-row">
+			<label>Captcha</label>
+			<div class="g-recaptcha" data-sitekey="<?php echo $siteKey; ?>"></div>
+		</div>
+
 		<input type="submit" value="Đăng ký" class="form-submit">
 	</form>
 </div>

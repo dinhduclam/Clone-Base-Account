@@ -58,7 +58,9 @@ class AuthController extends BaseController
 			header('Location: /account');
 		}
 		$this->layout = 'auth';
-		echo $this->render('register');
+		echo $this->render('register',[
+			"siteKey" => $this->siteKey
+		]);
 	}
 
 	// POST: /register
@@ -78,7 +80,8 @@ class AuthController extends BaseController
 				"username" => $registerModel->username,
 				"name" => $registerModel->name,
 				"hasError" => $registerModel->hasError(),
-				"error" => $registerModel->getError()
+				"error" => $registerModel->getError(),
+				"siteKey" => $this->siteKey
 			];
 			$this->layout = 'auth';
 			return $this->render('register', $param);

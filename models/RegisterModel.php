@@ -37,6 +37,13 @@ class RegisterModel extends BaseModel
 			$this->setError('Confirm password is not correct. Please try again.');
 			return false;
 		}
+
+		$recaptcha_response = $_POST['g-recaptcha-response'];
+		if (!CaptchaModel::confirmCaptcha($recaptcha_response)) {
+			$this->setError('Invalid captcha. Please try again.');
+			return false;
+		}
+		
 		if ($this->emailDuplicated()){
 			$this->setError('Email existed. Please try again.');
 			return false;

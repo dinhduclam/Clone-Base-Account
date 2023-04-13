@@ -16,7 +16,7 @@
 
 		<div class="auth-row">
 			<label>Captcha</label>
-			<div class="g-recaptcha" data-sitekey="<?php echo $siteKey; ?>">
+			<div class="g-recaptcha" data-sitekey="<?php echo $siteKey; ?>"></div>
 		</div>
 
 		<div class="auth-row checkbox">
