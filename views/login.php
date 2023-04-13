@@ -30,7 +30,7 @@
 		<input type="submit" value="Login to start working" class="form-submit">
 	</div>
 
-	<div class="register">
+	<div class="page-link">
 		<a href="/register">Create an account</a>
 	</div>
 </form>

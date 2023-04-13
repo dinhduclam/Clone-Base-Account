@@ -1,6 +1,9 @@
-
-<div id="wrapper">
-	<form action="" method="POST" id="form-auth">
+<form action="" method="POST" id="form-auth">
+	<div class="auth-title">
+		<h1>Register</h1>
+		<p>Register to create new account.</p>
+	</div>
+	<div class="main-form">
 		<div class="auth-row">
 			<label>Email</label>
 			<input type="email" name="email" value="<?php echo $email ?? '' ?>" class="form-input" placeholder="Your email">
@@ -31,8 +34,12 @@
 			<div class="g-recaptcha" data-sitekey="<?php echo $siteKey; ?>"></div>
 		</div>
 
-		<input type="submit" value="Đăng ký" class="form-submit">
-	</form>
-</div>
+		<input type="submit" value="Register" class="form-submit">
+	</div>
+
+	<div class="page-link">
+		Already have an account? <a href="/login">Login</a>
+	</div>
+</form>
 
 
