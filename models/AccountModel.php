@@ -34,6 +34,7 @@ class AccountModel extends BaseModel
 		}
 
 		if (!$this->validateAvatar()){
+			$this->setError("Invalid avatar");
 			return false;
 		}
 
@@ -45,9 +46,9 @@ class AccountModel extends BaseModel
 			$stmt = Application::$app->db->prepare("UPDATE accounts SET firstname=?,lastname=?,title=?,dob=?,avatar=?,phone=?,`address`=? WHERE username=?");
 			$stmt->bind_param("ssssssss", $this->firstname, $this->lastname, $this->title, $this->dob, $this->avatar, $this->phone, $this->address, $this->username);
 			$stmt->execute();
-			$result = $stmt->get_result();
-			return $result;
+			return true;
 		}
+		else return false;
 	}
 
 	public function loadAccountFromDb($username){
@@ -60,17 +61,22 @@ class AccountModel extends BaseModel
 	}
 
 	private function validateAvatar(){
+		if ($_FILES['avatar']['size'] == 0)
+			return true;
+
 		$check = getimagesize($_FILES["avatar"]["tmp_name"]);
 
 		if($check == false) {
 			return false;
 		}
 
-		$target_dir = "uploads/";
-		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+		$uploadFileName = basename($_FILES["avatar"]["name"]);
+		$target_dir = __DIR__."\..\public\avatar\\";
+		$imageFileType = strtolower(pathinfo($uploadFileName, PATHINFO_EXTENSION));
 		$target_file = $target_dir . $this->username . '.' . $imageFileType;
 
 		if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file)) {
+			$this->avatar = $this->username . '.' . $imageFileType;
 			return true;
 		} else {
 			return false;

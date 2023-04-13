@@ -9,20 +9,6 @@ function getAccountInfo(){
 	});
 }
 
-function editAccount(){
-	$.ajax({
-		url: 'api/account/edit',
-		type: 'POST',
-		data: {
-		  username: 'john',
-		  password: 'doe'
-		},
-		success: function(response) {
-		  console.log(response);
-		}
-	  });
-}
-
 function closeEditProfile(){
 	$("#dialog").hide()
 }
@@ -38,4 +24,24 @@ async function openEditProfile(){
 	jQuery("input[name='phone']").val(data.phone)
 	jQuery("input[name='address']").val(data.address)
 	$("#dialog").show()
+}
+
+async function updateProfile(){
+	form = document.getElementById("edit-profile")
+	fd = new FormData(form)
+	$.ajax({
+		url: 'api/account/edit',
+		type: 'POST',
+		data: fd,
+		enctype: 'multipart/form-data',
+		contentType: false,
+		processData: false,
+		success: function(response) {
+			res = JSON.parse(response)
+			console.log(res)
+			$('#dialog-alert .wrapper .content span').text(res.message)
+			$('#dialog').hide()
+			$('#dialog-alert').show()
+		}
+	})
 }

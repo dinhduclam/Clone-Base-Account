@@ -29,8 +29,8 @@ class AccountController extends BaseController
 			"fullname" => $accountModel->lastname.' '.$accountModel->firstname,
 			"email" => $accountModel->email,
 			"username" => $username,
-			"title" => $accountModel->title,
 			"avatar" => $accountModel->avatar,
+			"title" => $accountModel->title,
 			"phone" => $accountModel->phone,
 			"address" => $accountModel->address,
 			"logoutToken" => $token,
@@ -58,7 +58,6 @@ class AccountController extends BaseController
 			"username" => $username,
 			"title" => $accountModel->title,
 			"dob" => $accountModel->dob,
-			"avatar" => $accountModel->avatar,
 			"phone" => $accountModel->phone,
 			"address" => $accountModel->address
 		];
@@ -79,8 +78,18 @@ class AccountController extends BaseController
 		}
 
 		$accountModel = new AccountModel($data);
-		$accountModel->update();
-		$this->show("Location: /account");
+		if ($accountModel->update()){
+			return json_encode([
+				"success" => true,
+				"message" => "Update successfully!"
+			], JSON_UNESCAPED_UNICODE);
+		}
+		else {
+			return json_encode([
+				"success" => false,
+				"message" => $accountModel->getError()
+			], JSON_UNESCAPED_UNICODE);
+		}
 	}
 }
 
