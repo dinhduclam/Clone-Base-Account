@@ -1,6 +1,7 @@
 <?php
 
-
+require_once __DIR__."/services/SQLConditionBuilder.php";
+require_once __DIR__."/services/UpdateSQLBuilder.php";
 class AccountModel extends BaseModel
 {
 	public string $firstname;
@@ -43,12 +44,30 @@ class AccountModel extends BaseModel
 
 	public function update(){
 		if ($this->validate()){
-			$stmt = Application::$app->db->prepare("UPDATE accounts SET firstname=?,lastname=?,title=?,dob=?,avatar=?,phone=?,`address`=? WHERE username=?");
-			$stmt->bind_param("ssssssss", $this->firstname, $this->lastname, $this->title, $this->dob, $this->avatar, $this->phone, $this->address, $this->username);
-			$stmt->execute();
+			$updateSQLBuilder = new UpdateSQLBuilder();
+			$username = htmlspecialchars($this->username);
+			$updateSQLBuilder
+				->setTable('accounts')
+				->update('firstname', $this->firstname)
+				->update('lastname', $this->lastname)
+				->update('title', $this->title)
+				->update('dob', $this->dob)
+				->update('phone', $this->phone)
+				->update('address', $this->address);
+
+			if (isset($this->avatar) && $this->avatar != '')
+				$updateSQLBuilder->update('avatar', $this->avatar);
+
+			$conditionBuilder = new SQLConditionBuilder();
+			$conditionBuilder->equal('username', $this->username);
+			$updateSQLBuilder->setWhereRaw($conditionBuilder->build());
+			
+			$sql = $updateSQLBuilder->build();
+			Application::$app->db->query($sql);
 			return true;
 		}
-		else return false;
+		else
+			return false;
 	}
 
 	public function loadAccountFromDb($username){
