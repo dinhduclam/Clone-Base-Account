@@ -3,17 +3,17 @@
 	<form action="" method="POST" id="form-auth">
 		<div class="auth-row">
 			<label>Email</label>
-			<input type="email" name="email" value="<?php echo $model->email ?? '' ?>" class="form-input" placeholder="Your email">
+			<input type="email" name="email" value="<?php echo $email ?? '' ?>" class="form-input" placeholder="Your email">
 		</div>
 
 		<div class="auth-row">
 			<label>Username</label>
-			<input type="text" name="username" value="<?php echo $model->username ?? '' ?>" class="form-input" placeholder="Your username">
+			<input type="text" name="username" value="<?php echo $username ?? '' ?>" class="form-input" placeholder="Your username">
 		</div>
 
 		<div class="auth-row">
 			<label>Name</label>
-			<input type="text" name="name" value="<?php echo $model->name ?? '' ?>" class="form-input" placeholder="Your name">
+			<input type="text" name="name" value="<?php echo $name ?? '' ?>" class="form-input" placeholder="Your name">
 		</div>
 
 		<div class="auth-row">
@@ -28,14 +28,6 @@
 
 		<input type="submit" value="Đăng ký" class="form-submit">
 	</form>
-
-	<?php if (isset($model->error) && $model->error != '') : ?>
-		<script>
-			alert("<?php echo $model->error ?>")
-		</script>
-	<?php endif; ?>
-
-
 </div>
 
 

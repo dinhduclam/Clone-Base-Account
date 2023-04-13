@@ -18,35 +18,31 @@ class RegisterModel extends BaseModel
 	public function validate()
 	{
 		if (!$this->email){
-			$this->setError('missing email');
+			$this->setError('Invalid or empty email. Please try again.');
 			return false;
 		}
 		if (!$this->username){
-			$this->setError('missing username');
+			$this->setError('Invalid or empty username. Please try again.');
 			return false;
 		}
 		if (!$this->name){
-			$this->setError('missing name');
+			$this->setError('Invalid or empty name. Please try again.');
 			return false;
 		}
 		if (!$this->password){
-			$this->setError('missing password');
-			return false;
-		}
-		if (!$this->email){
-			$this->setError('missing email');
+			$this->setError('Invalid password. Please try again.');
 			return false;
 		}
 		if ($this->password != $this->confirmPassword){
-			$this->setError('confirm password');
+			$this->setError('Confirm password is not correct. Please try again.');
 			return false;
 		}
 		if ($this->emailDuplicated()){
-			$this->setError('email existed');
+			$this->setError('Email existed. Please try again.');
 			return false;
 		}
 		if ($this->usernameDuplicated()){
-			$this->setError('username existed');
+			$this->setError('Username existed. Please try again.');
 			return false;
 		}
 
