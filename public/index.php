@@ -7,7 +7,7 @@ require_once __DIR__."/../controllers/AccountController.php";
 $app = new Application(dirname(__DIR__));
 
 $app->router->get('/', function(){
-	echo "Home";
+	header('Location: login');
 });
 
 $app->router->get('/login', [AuthController::class, 'login']);
