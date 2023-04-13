@@ -22,7 +22,8 @@ class AuthController extends BaseController
 		}
 		$this->layout = 'auth';
 		return $this->render('login', [
-			"siteKey" => $this->siteKey
+			"siteKey" => $this->siteKey,
+			"title" => 'Login - Base Account'
 		]);
 	}
 
@@ -41,6 +42,7 @@ class AuthController extends BaseController
 		}
 		else{
 			$param = [
+				"title" => 'Login - Base Account',
 				"email" => $loginModel->email,
 				"hasError" => $loginModel->hasError(),
 				"error" => $loginModel->getError(),
@@ -59,7 +61,8 @@ class AuthController extends BaseController
 		}
 		$this->layout = 'auth';
 		echo $this->render('register',[
-			"siteKey" => $this->siteKey
+			"siteKey" => $this->siteKey,
+			"title" => 'Register - Base Account'
 		]);
 	}
 
@@ -76,6 +79,7 @@ class AuthController extends BaseController
 		}
 		else {
 			$param = [
+				"title" => 'Register - Base Account',
 				"email" => $registerModel->email,
 				"username" => $registerModel->username,
 				"name" => $registerModel->name,
