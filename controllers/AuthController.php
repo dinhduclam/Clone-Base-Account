@@ -60,7 +60,7 @@ class AuthController extends BaseController
 			header('Location: /account');
 		}
 		$this->layout = 'auth';
-		echo $this->render('register',[
+		return $this->render('register',[
 			"siteKey" => $this->siteKey,
 			"title" => 'Register - Base Account'
 		]);
