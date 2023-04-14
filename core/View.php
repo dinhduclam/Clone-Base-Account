@@ -2,8 +2,6 @@
 
 class View
 {
-    public string $title = '';
-
     public function renderView($view, array $params = [])
     {
         if (Application::$app->controller) {
