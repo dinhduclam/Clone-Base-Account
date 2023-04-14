@@ -1,6 +1,5 @@
 <?php
 
-require_once __DIR__."/services/SQLConditionBuilder.php";
 require_once __DIR__."/services/UpdateSQLBuilder.php";
 class AccountModel extends BaseModel
 {
@@ -44,8 +43,7 @@ class AccountModel extends BaseModel
 
 	public function update(){
 		if ($this->validate()){
-			$updateSQLBuilder = new UpdateSQLBuilder();
-			$username = htmlspecialchars($this->username);
+			$updateSQLBuilder = new UpdateSQLBuilder(Application::$app->db);
 			$updateSQLBuilder
 				->setTable('accounts')
 				->update('firstname', $this->firstname)
@@ -57,13 +55,9 @@ class AccountModel extends BaseModel
 
 			if (isset($this->avatar) && $this->avatar != '')
 				$updateSQLBuilder->update('avatar', $this->avatar);
-
-			$conditionBuilder = new SQLConditionBuilder();
-			$conditionBuilder->equal('username', $this->username);
-			$updateSQLBuilder->setWhereRaw($conditionBuilder->build());
 			
-			$sql = $updateSQLBuilder->build();
-			Application::$app->db->query($sql);
+			$updateSQLBuilder->where('username', $this->username);
+			$updateSQLBuilder->build()->execute();
 			return true;
 		}
 		else
