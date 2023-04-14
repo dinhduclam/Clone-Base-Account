@@ -17,7 +17,7 @@ class RegisterModel extends BaseModel
 
 	public function validate()
 	{
-		if (!$this->email){
+		if (!$this->email && !filter_var($this->email, FILTER_VALIDATE_EMAIL)){
 			$this->setError('Invalid or empty email. Please try again.');
 			return false;
 		}
